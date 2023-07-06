@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('bookss.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+  }
+  .rentButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
+  
+  #container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  #searchContainer {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  #searchInput {
+    width: 300px;
+    padding: 10px;
+    margin-right: 10px;
+    font-family: Arial, sans-serif;
+  }
+  
+  #searchButton {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+  }
+  
+  #bookList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  
+  
+  .book p {
+    font-size: 14px;
+    line-height: 18px;
+    height: 54px; /* Adjust the height to limit the number of lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* Adjust the line clamp value to control the number of lines */
+  }
+  .book {
+    flex: 0 0 calc(33.33% - 20px); /* Adjust the width of each book element */
+    background-color: #ccc;
+    color: #333;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  .book img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  .loadMoreButton {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .loadMoreButton button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+  }
+  #suggestionList {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    margin-top: 4px;
+    padding: 0;
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #suggestionList option {
+    padding: 8px;
+    font-size: 14px;
+  }
+  #searchButton:hover {
+    background-color: #45a049;
+  }

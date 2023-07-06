@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Haven</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link href="styles.css" rel="stylesheet" />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+  />
+  <link rel="stylesheet" href="popstyles.css" />
+  <h2>Book Haven Library</h2>
+  </head>
+  <body>
+    <nav class="navbar">
+      <button onclick="toggleMenu()" class="burger"></button>
+      <button class="button">Home</button>
+      <div class="dropdowns">
+        <div class="dropdown">
+          <button class="button">
+            Books
+            <img src="chevron.svg" />
+          </button>
+          <div class="dropdown-menu">
+            <button id="rent">Rent
+                <script>window.addEventListener('DOMContentLoaded', function() {
+                    var rent = document.getElementById('rent');
+                    
+                    rent.addEventListener('click', function() {
+                      window.open('rent.html', '_blank');
+                    });
+                  });</script>
+            </button>
+            <button>Return</button>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="button">
+          Cart
+          </button>
+        </div>
+      </div>
+    </nav>
+    
+    
+    <script>
+     const toggleMenu = () => {
+  document.body.classList.toggle("open");
+  document.querySelector(".navbar").classList.toggle("open");
+};
+    </script>
+
+    <h1>Popular books</h1>
+     <section>
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-slide--one">
+              <div>
+                <h2>1 Series</h2>
+                <a>explore</a>
+              </div>
+            </div>
+            <div class="swiper-slide swiper-slide--two">
+              <div>
+                <h2>2 Series</h2>
+                <a>explore</a>
+              </div>
+            </div>
+            <div class="swiper-slide swiper-slide--three">
+              <div>
+                <h2>3 Series</h2>
+                <a>explore</a>
+              </div>
+            </div>
+            <div class="swiper-slide swiper-slide--four">
+              <div>
+                <h2>4 Series</h2>
+                <a>explore</a>
+              </div>
+            </div>
+  
+            <div class="swiper-slide swiper-slide--five">
+              <div>
+                <h2>5 Series</h2>
+                <a>explore</a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+      <script src="popbooks.js"></script>
+    
+  </body>
+</html>

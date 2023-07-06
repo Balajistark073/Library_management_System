@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome to Book Haven</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,0,0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-auth.js"></script>
+</head>
+<body>
+  <img class="clouds" src="bg.svg" />
+  <div class="container">
+    <div class="signup">
+      <h2>Sign Up</h2>
+      <h3>It's quick & simple</h3>
+      <form class="form" onsubmit="signUp(event)">
+        <div class="textbox">
+          <input type="text" required name="name" />
+          <label>Name</label>
+          <span class="material-symbols-outlined">account_circle</span>
+        </div>
+        <div class="textbox">
+          <input type="text" required name="email" />
+          <label>Email</label>
+          <span class="material-symbols-outlined">email</span>
+        </div>
+        <div class="textbox">
+          <input type="password" required name="password" />
+          <label>Password</label>
+          <span class="material-symbols-outlined">key</span>
+        </div>
+        <p>
+          Signed up already? <a href="signin.html">Login here</a>
+        </p>
+        <button type="submit" id="submit">
+          Join Book Haven
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+      </form>
+    </div>
+  </div>
+  <script>
+   const firebaseConfig = {
+    apiKey: "AIzaSyDHXJUk2RHjQ4JS2wBWteuSrjWVVaga51Q",
+    authDomain: "librarymanagement-5572b.firebaseapp.com",
+    projectId: "librarymanagement-5572b",
+    storageBucket: "librarymanagement-5572b.appspot.com",
+    messagingSenderId: "646788476327",
+    appId: "1:646788476327:web:d3711d422fb33698505a82"
+  };
+
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    function signUp(event) {
+      event.preventDefault();
+
+      const name = document.querySelector('input[name="name"]').value;
+      const email = document.querySelector('input[name="email"]').value;
+      const password = document.querySelector('input[name="password"]').value;
+
+      auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log("User signed up:", user);
+          window.location.replace("signed.html");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.error("Signup error:", errorCode, errorMessage);
+        });
+    }
+  </script>
+</body>
+</html>
