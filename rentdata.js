@@ -1,3 +1,5 @@
+let recordCount = 0;
+
 const searchInput = document.getElementById('searchInput');
 const suggestionList = document.getElementById('suggestionList');
 
@@ -81,6 +83,7 @@ function fetchBooks(query, startIndex) {
           title: title,
           imageUrl: imageUrl
         };
+        
       
         // Add the book to the cartItems array
         cartItems.push(book);
@@ -95,6 +98,7 @@ function fetchBooks(query, startIndex) {
         searchInput.value = '';
         suggestionList.innerHTML = '';
       }
+    
       
 
       // Check if there are more books to load

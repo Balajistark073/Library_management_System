@@ -1,22 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Rent</title>
   <link rel="stylesheet" type="text/css" href="rentstyle.css">
 </head>
 <body>
-    <div id="container">
-        <div id="searchContainer">
-          <input type="text" id="searchInput" placeholder="Search for books...">
-          <datalist id="suggestionList"></datalist>
-          <button id="searchButton">Search</button>
-        </div>
-
-        <div id="bookList">
-          <!-- Book information will be dynamically added here -->
-        </div>
+  <div id="container">
+    <div id="searchContainer">
+      <input type="text" id="searchInput" placeholder="Search for books, authors, etc...">
+      <datalist id="suggestionList"></datalist>
+      <button id="searchButton">Search</button>
+      <button id="cartbutton" onclick="goToCart()" style="background-color: rgb(11, 65, 65);color: antiquewhite;font-family: 'Courier New', Courier, monospace;padding: 10px;">Go to Cart</button>
     </div>
 
-    <script src="rentdata.js"></script>
+    <div id="bookList">
+      <!-- Book information will be dynamically added here -->
+    </div>
+  </div>
+
+  <script src="booksdata.js"></script>
+  <script>
+    // Check if the cart data exists in the storage
+    if (!localStorage.getItem('cart')) {
+      // Initialize an empty cart if it doesn't exist
+      localStorage.setItem('cart', '[]');
+    }
+
+    function addToCart(title, imageUrl) {
+      // Get the cart data from local storage
+      const cartData = JSON.parse(localStorage.getItem('cart'));
+
+      // Create an object with the book information
+      const book = {
+        title: title,
+        imageUrl: imageUrl
+      };
+
+      // Add the book to the cart data
+      cartData.push(book);
+
+      // Store the updated cart data in local storage
+      localStorage.setItem('cart', JSON.stringify(cartData));
+    }
+
+    function goToCart() {
+      window.location.href = 'cart.html';
+    }
+  </script>
+  <script src="rentdata.js"></script>
 </body>
 </html>

@@ -1,6 +1,15 @@
-<!-- Add a container to display the cart items -->
-<div id="cartItemsContainer"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cart</title>
+  <link rel="stylesheet" href="cartstyle.css">
+</head>
+<body>
+  <div id="cartItemsContainer"></div>
+  <button id="addMoreButton" onclick="goBack()">Add More Items</button>
+</body>
 
+<script src="booksdata.js"></script>
 <script>
   // Retrieve the cart data from local storage
   const cartData = JSON.parse(localStorage.getItem('cart'));
@@ -10,14 +19,15 @@
     const cartItemsContainer = document.getElementById('cartItemsContainer');
 
     // Loop through the cart items and display them
-    cartData.forEach(item => {
+    cartData.forEach((item, index) => {
       const bookElement = document.createElement('div');
       bookElement.classList.add('book');
 
-      // Create HTML structure to display the book information
+      // Create HTML structure to display the book information and remove button
       bookElement.innerHTML = `
         <img src="${item.imageUrl}" alt="${item.title}">
         <h3>${item.title}</h3>
+        <button class="removeButton" onclick="removeFromCart(${index})">Remove</button>
       `;
 
       cartItemsContainer.appendChild(bookElement);
@@ -25,6 +35,28 @@
   } else {
     // Display a message if the cart is empty
     const cartItemsContainer = document.getElementById('cartItemsContainer');
-    cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+    cartItemsContainer.innerHTML = '<p id="emptycart">Your cart is empty!</p>';
+  }
+
+  function removeFromCart(index) {
+    // Retrieve the cart data from local storage
+    const cartData = JSON.parse(localStorage.getItem('cart'));
+
+    // Check if the cart data exists and the index is valid
+    if (cartData && cartData.length > index) {
+      // Remove the item from the cart array
+      cartData.splice(index, 1);
+
+      // Update the cart data in local storage
+      localStorage.setItem('cart', JSON.stringify(cartData));
+
+      // Reload the page to reflect the updated cart
+      location.reload();
+    }
+  }
+
+  function goBack() {
+    window.history.back();
   }
 </script>
+</html>

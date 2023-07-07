@@ -46,8 +46,15 @@
           </div>
         </div>
         <div class="dropdown">
-          <button class="button">
+          <button class="button" id="cart">
           Cart
+          <script>window.addEventListener('DOMContentLoaded', function() {
+            var rent = document.getElementById('cart');
+            
+            rent.addEventListener('click', function() {
+              window.open('cart.html', '_blank');
+            });
+          });</script>
           </button>
         </div>
       </div>

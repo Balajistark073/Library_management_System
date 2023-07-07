@@ -1,0 +1,78 @@
+body {
+    background: linear-gradient(to bottom, #ffffff, #f8f8f8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #emptycart {
+    color: #3f3a81;
+    font-size: 70px;
+    text-align: center;
+    font-family: "Helvetica", sans-serif;
+    margin-bottom: 20px;
+  }
+  
+  #cartItemsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  .book {
+    width: 250px;
+    height: 320px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .book img {
+    width: 210px;
+    height: 280px;
+    margin-bottom: 10px;
+  }
+  
+  .book h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .removeButton {
+    background-color: #e74c3c;
+    color: #ffffff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .removeButton:hover {
+    background-color: #a6291f;
+  }
+  
+  #addMoreButton {
+    background-color: #4CAF50;
+    color: #ffffff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  #addMoreButton:hover {
+    background-color: #45a049;
+  }
+  
