@@ -9,7 +9,6 @@
   <button id="addMoreButton" onclick="goBack()">Add More Items</button>
 </body>
 
-<script src="booksdata.js"></script>
 <script>
   // Retrieve the cart data from local storage
   const cartData = JSON.parse(localStorage.getItem('cart'));
@@ -56,7 +55,11 @@
   }
 
   function goBack() {
-    window.history.back();
+    // Store the current page URL in local storage before navigating back
+    localStorage.setItem('previousPage', window.location.href);
+
+    // Redirect to rent.html
+    window.location.href = 'rent.html';
   }
 </script>
 </html>
